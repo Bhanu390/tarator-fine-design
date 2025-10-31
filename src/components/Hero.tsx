@@ -8,28 +8,28 @@ const Hero = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex flex-col">
-      {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/60 to-transparent">
-        <div className="container mx-auto px-4 py-6">
+    <>
+      {/* Navigation - Europa Pizza Style */}
+      <nav className="bg-[#1a1a1a] border-b border-white/10">
+        <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <img src={taratorLogo} alt="Tarator Logo" className="h-16 md:h-20" />
+            <img src={taratorLogo} alt="Tarator Logo" className="h-12 md:h-16" />
             
             <div className="hidden md:flex items-center gap-8">
-              <a href="#about" className="font-inter text-white hover:text-primary-foreground transition-colors">
-                About
+              <a href="#about" className="font-inter text-sm text-white hover:text-primary transition-colors">
+                ABOUT
               </a>
-              <a href="#menu" className="font-inter text-white hover:text-primary-foreground transition-colors">
-                Menu
+              <a href="#menu" className="font-inter text-sm text-white hover:text-primary transition-colors">
+                MENU
               </a>
-              <a href="#gallery" className="font-inter text-white hover:text-primary-foreground transition-colors">
-                Gallery
+              <a href="#gallery" className="font-inter text-sm text-white hover:text-primary transition-colors">
+                GALLERY
               </a>
-              <a href="#contact" className="font-inter text-white hover:text-primary-foreground transition-colors">
-                Contact
+              <a href="#contact" className="font-inter text-sm text-white hover:text-primary transition-colors">
+                CONTACT
               </a>
-              <Button variant="default" className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium px-6">
-                Book Now
+              <Button variant="default" className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium px-6 text-sm">
+                BOOK NOW
               </Button>
             </div>
 
@@ -46,20 +46,20 @@ const Hero = () => {
           {mobileMenuOpen && (
             <div className="md:hidden mt-4 bg-white/95 backdrop-blur rounded-lg p-6 shadow-lg">
               <div className="flex flex-col gap-4">
-                <a href="#about" className="font-inter text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  About
+                <a href="#about" className="font-inter text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  ABOUT
                 </a>
-                <a href="#menu" className="font-inter text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Menu
+                <a href="#menu" className="font-inter text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  MENU
                 </a>
-                <a href="#gallery" className="font-inter text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Gallery
+                <a href="#gallery" className="font-inter text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  GALLERY
                 </a>
-                <a href="#contact" className="font-inter text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                  Contact
+                <a href="#contact" className="font-inter text-sm text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  CONTACT
                 </a>
-                <Button variant="default" className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium w-full">
-                  Book Now
+                <Button variant="default" className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium w-full text-sm">
+                  BOOK NOW
                 </Button>
               </div>
             </div>
@@ -67,33 +67,77 @@ const Hero = () => {
         </div>
       </nav>
 
-      {/* Hero Content */}
-      <div className="relative flex-1 flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50" />
+      {/* Hero Section - Tarator Grid Style */}
+      <section className="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-80px)]">
+        {/* Tarator Card */}
+        <div className="relative min-h-[400px] md:min-h-0 overflow-hidden group">
+          <img src={heroImage} alt="Tarator" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">
+              Tarator
+            </h2>
+            <p className="font-inter text-white/90 mb-6 max-w-md">
+              Fresh Mediterranean cuisine made with authentic ingredients and traditional recipes
+            </p>
+            <Button className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium">
+              Read More
+            </Button>
+          </div>
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6">
-            Authentic <span className="italic">Mediterranean</span> Flavours
-          </h1>
-          <p className="font-inter text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Experience the rich traditions of Mediterranean cuisine with fresh, unforgettable ingredients
-          </p>
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium px-8 py-6 text-lg"
-          >
-            Explore Menu
-          </Button>
+        {/* Europa Pizza Card */}
+        <div className="relative min-h-[400px] md:min-h-0 overflow-hidden group">
+          <img src={heroImage} alt="Europa Pizza" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">
+              Europa Pizza
+            </h2>
+            <p className="font-inter text-white/90 mb-6 max-w-md">
+              Authentic Italian pizzas crafted with premium ingredients and wood-fired perfection
+            </p>
+            <Button className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium">
+              Read More
+            </Button>
+          </div>
         </div>
-      </div>
-    </section>
+
+        {/* Catering Card */}
+        <div className="relative min-h-[400px] md:min-h-0 overflow-hidden group">
+          <img src={heroImage} alt="Catering" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">
+              Catering
+            </h2>
+            <p className="font-inter text-white/90 mb-6 max-w-md">
+              Professional catering services for all occasions with custom menu options
+            </p>
+            <Button className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium">
+              Enquire
+            </Button>
+          </div>
+        </div>
+
+        {/* Events Card */}
+        <div className="relative min-h-[400px] md:min-h-0 overflow-hidden group">
+          <img src={heroImage} alt="Events" className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-white mb-4">
+              Events
+            </h2>
+            <p className="font-inter text-white/90 mb-6 max-w-md">
+              Host your special events with us - birthdays, corporate events, and celebrations
+            </p>
+            <Button className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium">
+              Enquire
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
