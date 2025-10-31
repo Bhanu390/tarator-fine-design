@@ -1,27 +1,63 @@
+import { useState } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import MenuShowcase from "@/components/MenuShowcase";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Gallery from "@/components/Gallery";
+import Testimonials from "@/components/Testimonials";
+import CallToAction from "@/components/CallToAction";
+import Footer from "@/components/Footer";
+import FullMenu from "@/pages/FullMenu";
+import Contact from "@/pages/Contact";
+import Events from "@/pages/Events";
 
-const queryClient = new QueryClient();
+function App() {
+  const [currentPage, setCurrentPage] = useState('home');
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'menu':
+        return <FullMenu onNavigate={handleNavigate} />;
+      case 'contact':
+        return <Contact onNavigate={handleNavigate} />;
+      case 'events':
+        return <Events onNavigate={handleNavigate} />;
+      case 'home':
+      default:
+        return (
+          <>
+            <Hero onNavigate={handleNavigate} />
+            <About />
+            <MenuShowcase onNavigate={handleNavigate} />
+            <WhyChooseUs />
+            <Gallery />
+            <Testimonials />
+            <CallToAction />
+          </>
+        );
+    }
+  };
+
+  return (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="min-h-screen">
+        <Header currentPage={currentPage} onNavigate={handleNavigate} />
+        {renderPage()}
+        <Footer onNavigate={handleNavigate} />
+      </div>
     </TooltipProvider>
-  </QueryClientProvider>
-);
+  );
+}
 
 export default App;

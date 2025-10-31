@@ -2,6 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import brunchImage from "@/assets/brunch-image.jpg";
 
+interface MenuShowcaseProps {
+  onNavigate?: (page: string) => void;
+}
+
 const menuCategories = [
   {
     title: "All Day Brunch",
@@ -33,7 +37,7 @@ const menuCategories = [
   },
 ];
 
-const MenuShowcase = () => {
+const MenuShowcase = ({ onNavigate }: MenuShowcaseProps) => {
   return (
     <section id="menu" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -91,6 +95,7 @@ const MenuShowcase = () => {
           <Button
             size="lg"
             className="bg-primary hover:bg-[hsl(var(--primary-hover))] text-primary-foreground font-inter font-medium px-8"
+            onClick={() => onNavigate?.('menu')}
           >
             View Full Menu
           </Button>

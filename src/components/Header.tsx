@@ -148,9 +148,9 @@ export default function Header({ currentPage, onNavigate, cartItemCount = 0, onC
       >
         <nav className="container-custom py-3 md:py-4 mobile-menu-container">
           <div className="flex items-center justify-between">
-            {/* Logo Section */}
+            {/* Logo Section - Adjusted spacing */}
             <div
-              className="flex items-center cursor-pointer"
+              className="flex items-center cursor-pointer md:ml-12"
               onClick={() => onNavigate('home')}
             >
               {!logoError ? (
@@ -170,8 +170,8 @@ export default function Header({ currentPage, onNavigate, cartItemCount = 0, onC
               )}
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop Navigation - Adjusted spacing */}
+            <div className="hidden md:flex items-center gap-8 md:mr-12">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
