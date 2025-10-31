@@ -6,10 +6,12 @@ import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Header />
       <Hero />
       <About />
       <MenuShowcase />

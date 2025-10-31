@@ -1,15 +1,18 @@
-import heroImage from "@/assets/hero-image.jpg";
-import brunchImage from "@/assets/brunch-image.jpg";
-import cateringImage from "@/assets/catering-image.jpg";
+import heroImage from "@/assets//images/wraps (1).jpeg";
+import brunchImage from "@/assets/images/pasta.jpg";
+import cateringImage from "@/assets/images/salads.jpg";
+import s1 from "@/assets/images/pizza.jpg";
+import s2 from "@/assets/images/coffee.jpeg";
+import s3 from "@/assets/images/salads.jpg";
 
 const Gallery = () => {
   const images = [
-    { src: heroImage, alt: "Mediterranean Mezze Platter" },
-    { src: brunchImage, alt: "Brunch Selection" },
-    { src: cateringImage, alt: "Catering Display" },
-    { src: heroImage, alt: "Fresh Ingredients" },
-    { src: brunchImage, alt: "Breakfast Spread" },
-    { src: cateringImage, alt: "Event Catering" },
+    { src: heroImage, alt: "Wraps" },
+    { src: brunchImage, alt: "Pasta" },
+    { src: cateringImage, alt: "Salads" },
+    { src: s1, alt: "Pizza" },
+    { src: s2, alt: "Coffe" },
+    { src: s3, alt: "Salads" },
   ];
 
   return (

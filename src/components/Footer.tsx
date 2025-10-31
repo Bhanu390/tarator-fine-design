@@ -1,89 +1,71 @@
-import taratorLogo from "@/assets/tarator-logo.png";
-import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import taratorLogo from "../assets/images/tarator.png";
+// import logo from '../images/tarator.png';
+interface FooterProps {
+  onNavigate: (page: string) => void;
+}
 
-const Footer = () => {
+export default function Footer({ onNavigate }: FooterProps) {
   return (
-    <footer className="bg-foreground text-background py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-1">
-            <img src={taratorLogo} alt="Tarator Logo" className="h-20 mb-6 brightness-0 invert" />
-            <p className="font-inter text-background/80 leading-relaxed">
-              Authentic Mediterranean cuisine served with passion and tradition.
+    <footer className="text-white" style={{ backgroundColor: "#591B1B" }}>
+      <div className="container-custom py-12">
+        <div className="text-center mb-12">
+          <p className="text-base leading-relaxed max-w-4xl mx-auto text-gray-200">
+            Bringing the flavours of the Mediterranean to South Melbourne - Fresh, Authentic, Unforgettable.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Logo Section - Updated to use your tarator.png logo */}
+          <div className="flex justify-center md:justify-start">
+            <div className="w-24 h-24 flex items-center justify-center">
+              <img 
+                src={taratorLogo}
+                alt="Tarator Logo" 
+                className="h-20 w-auto max-w-[160px]"
+                onError={(e) => {
+                  // Fallback if logo doesn't load
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold mb-4">About</h3>
+            <p className="text-gray-200 text-sm leading-relaxed">
+              Experience authentic Mediterranean flavors at Tarator Cafe, where fresh ingredients meet traditional recipes.
             </p>
           </div>
 
           <div>
-            <h3 className="font-playfair text-xl font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2 font-inter">
-              <li>
-                <a href="#about" className="text-background/80 hover:text-primary transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#menu" className="text-background/80 hover:text-primary transition-colors">
-                  Menu
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" className="text-background/80 hover:text-primary transition-colors">
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-background/80 hover:text-primary transition-colors">
-                  Contact
-                </a>
-              </li>
-            </ul>
+            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <div className="text-gray-200 text-sm space-y-2">
+              <p>75 Dorcas St, South Melbourne, 3205</p>
+              <p>1300 827 286</p>
+              <p>info@taratorcafe.com.au</p>
+            </div>
           </div>
 
           <div>
-            <h3 className="font-playfair text-xl font-bold mb-4">Contact Us</h3>
-            <ul className="space-y-3 font-inter">
-              <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-primary mt-0.5" />
-                <span className="text-background/80">(03) 1234 5678</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-primary mt-0.5" />
-                <span className="text-background/80">info@tarator.com.au</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5" />
-                <span className="text-background/80">Melbourne, VIC Australia</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-playfair text-xl font-bold mb-4">Opening Hours</h3>
-            <ul className="space-y-2 font-inter text-background/80">
-              <li>Monday - Friday: 7am - 4pm</li>
-              <li>Saturday - Sunday: 8am - 4pm</li>
-              <li className="pt-4">
-                <div className="flex gap-4">
-                  <a href="#" className="hover:text-primary transition-colors">
-                    <Facebook className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="hover:text-primary transition-colors">
-                    <Instagram className="w-6 h-6" />
-                  </a>
-                </div>
-              </li>
-            </ul>
+            <h3 className="text-xl font-bold mb-4">Operating Hours</h3>
+            <div className="text-gray-200 text-sm space-y-2">
+              <p>Monday-Friday: 7:00 AM - 3:00 PM</p>
+              <p>Saturday-Sunday: Closed</p>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-background/20 pt-8 text-center">
-          <p className="font-inter text-background/60">
-            © {new Date().getFullYear()} Tarator. All rights reserved. | Crafted with love in Melbourne
-          </p>
+      <div className="border-t border-white/20 relative">
+        <div className="absolute bottom-0 left-0 right-0 h-8 opacity-20"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(255,255,255,0.3) 15px, rgba(255,255,255,0.3) 17px)',
+          }}
+        ></div>
+        <div className="container-custom py-6 text-center">
+          <p className="text-gray-300 text-sm">© 2025 Tarator Cafe. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
